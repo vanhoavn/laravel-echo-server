@@ -89,6 +89,11 @@ export class Server {
     httpServer(secure: boolean) {
         this.express = express();
 
+        this.express.get('/', function (req, res) {
+          res.send('ok');
+        });
+
+
         if (secure) {
             var httpServer = https.createServer(this.options, this.express);
         } else {
